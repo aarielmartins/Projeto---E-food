@@ -1,5 +1,5 @@
-import RestaurantHeader from '../RestaurantHeader'
-import RestaurantList from '../RestaurantList'
+import RestaurantHeader from '../../components/RestaurantHeader'
+import RestaurantList from '../../components/RestaurantList'
 
 const RestaurantHome = () => {
   return (

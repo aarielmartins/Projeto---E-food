@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const ItensCartContainer = styled.div`
-  width: 1024px;
+  max-width: 1024px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
