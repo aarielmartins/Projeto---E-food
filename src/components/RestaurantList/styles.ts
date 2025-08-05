@@ -5,7 +5,7 @@ export const ItensCartContainer = styled.div`
   max-width: 1024px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr 1fr;
   row-gap: 32px;
   column-gap: 32px;
   margin-top: 64px;

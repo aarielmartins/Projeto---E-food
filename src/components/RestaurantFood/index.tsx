@@ -23,7 +23,7 @@ const RestaurantFood = ({ img, name, descricao, onClick }: Props) => {
         </ContainerImg>
         <h3>{name}</h3>
         <p>{descricao && getDescricao(descricao)}</p>
-        <Button>adicionar ao carrinho</Button>
+        <Button>Adicionar ao carrinho</Button>
       </ItenCartContainer>
     </>
   )

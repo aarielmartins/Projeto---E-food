@@ -5,7 +5,7 @@ import { cores } from '../../styles'
 export const HeaderContainer = styled.div`
   display: block;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   font-weight: bold;
 `
 export const Containerlogo = styled.div`
@@ -39,7 +39,7 @@ export const Img = styled.div`
   position: relative;
 `
 export const ContainerImg = styled.div`
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-size: cover;
   position: relative;
   z-index: 0;

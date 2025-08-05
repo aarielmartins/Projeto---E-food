@@ -5,7 +5,8 @@ export const ItenCartContainer = styled.div`
   background-color: ${cores.laranja};
   color: ${cores.fundo};
   padding: 8px;
-  max-width: 300px;
+  max-width: 320px;
+  max-height: 338px;
 
   img {
     width: 100%;
@@ -28,7 +29,7 @@ export const ItenCartContainer = styled.div`
 export const Button = styled.button`
   background-color: ${cores.fundo};
   color: ${cores.laranja};
-  padding: 4px 8px;
+  padding: 4px 0;
   margin-top: 8px;
   width: 100%;
   border: none;
