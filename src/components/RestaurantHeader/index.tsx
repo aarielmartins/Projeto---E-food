@@ -23,7 +23,7 @@ const RestaurantHeader = () => {
     fetch(`https://ebac-fake-api.vercel.app/api/efood/restaurantes/${id}`)
       .then((res) => res.json())
       .then((res) => setCardapio(res))
-  })
+  }, [id])
 
   const cardapioRestaurante = cardapio
 
