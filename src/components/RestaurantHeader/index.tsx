@@ -29,7 +29,7 @@ const RestaurantHeader = () => {
 
   return (
     <HeaderContainer style={{ backgroundImage: `url(${fundoRestaurante})` }}>
-      <Containerlogo>
+      <Containerlogo className="container">
         <HomeLink to={'/'}>Restaurantes</HomeLink>
         <Link to={'/'}>
           <img src={logo} alt="Logo da Efood" />
