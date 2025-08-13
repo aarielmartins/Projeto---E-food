@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import fundoRestaurante from '../../assets/images/fundoRestaurante.png'
 import logo from '../../assets/images/logo.png'
@@ -11,8 +13,9 @@ import {
   Italic,
   Overlay
 } from './styles'
-import { useEffect, useState } from 'react'
+import { open } from '../../store/redurcers/cart'
 import Cardapio from '../../models/cardapio'
+import { RootReducer } from '../../store'
 
 const RestaurantHeader = () => {
   const [cardapio, setCardapio] = useState<Cardapio>()
@@ -27,6 +30,13 @@ const RestaurantHeader = () => {
 
   const cardapioRestaurante = cardapio
 
+  const dispatch = useDispatch()
+  const { itens } = useSelector((state: RootReducer) => state.cart)
+
+  const openCart = () => {
+    dispatch(open())
+  }
+
   return (
     <HeaderContainer style={{ backgroundImage: `url(${fundoRestaurante})` }}>
       <Containerlogo className="container">
@@ -34,7 +44,7 @@ const RestaurantHeader = () => {
         <Link to={'/'}>
           <img src={logo} alt="Logo da Efood" />
         </Link>
-        <Cart>0 produto(s) no carrinho</Cart>
+        <Cart onClick={openCart}>{itens.length} produto(s) no carrinho</Cart>
       </Containerlogo>
       <ContainerImg
         style={{ backgroundImage: `url(${cardapioRestaurante?.capa})` }}

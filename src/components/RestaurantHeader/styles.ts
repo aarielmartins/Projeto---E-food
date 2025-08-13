@@ -4,7 +4,7 @@ import { cores } from '../../styles'
 
 export const HeaderContainer = styled.div`
   display: block;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-size: contain;
   font-weight: bold;
 `

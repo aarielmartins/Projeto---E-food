@@ -1,18 +1,24 @@
+import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { GlobalCss } from './styles'
+import { store } from './store'
 import Rotas from './routes'
 import Footer from './components/Footer'
+import Cart from './components/Cart'
 
 //ORGANIZAÇÃO DE PÁGINAS PELO BROWSERROUTER
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <GlobalCss />
-        <div className="container"></div>
-        <Rotas />
-        <Footer />
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <GlobalCss />
+          <div className="container"></div>
+          <Rotas />
+          <Footer />
+          <Cart />
+        </BrowserRouter>
+      </Provider>
     </>
   )
 }
