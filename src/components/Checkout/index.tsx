@@ -2,8 +2,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import { usePurchaseMutation } from '../../services/api'
 import { useNavigate } from 'react-router-dom'
-import * as S from './styles'
-import * as Yup from 'yup'
 import { CartGlobalContainer } from '../Cart/styles'
 import {
   open,
@@ -14,13 +12,16 @@ import {
   clear
 } from '../../store/redurcers/cart'
 import { useFormik } from 'formik'
+import InputMask from 'react-input-mask'
+import * as S from './styles'
+import * as Yup from 'yup'
 
 const Checkout = () => {
   const { isOrder } = useSelector((state: RootReducer) => state.cart)
   const { isPayment } = useSelector((state: RootReducer) => state.cart)
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const [purchase, { data, isSuccess }] = usePurchaseMutation()
+  const [purchase, { data, isSuccess, error }] = usePurchaseMutation()
 
   const abrirPagamento = () => {
     dispatch(openPayment())
@@ -56,8 +57,8 @@ const Checkout = () => {
       city: Yup.string().required('A cidade é obrigatória'),
       cep: Yup.string()
         .required('O CEP é obrigatório')
-        .min(8, 'O campo precisa ter 8 caracteres')
-        .max(8, 'O campo precisa ter 8 caracteres'),
+        .min(9, 'O campo precisa ter 8 caracteres')
+        .max(9, 'O campo precisa ter 8 caracteres'),
       number: Yup.string().required('O número do endereço é obrigatório'),
       complement: Yup.string()
     }),
@@ -80,7 +81,7 @@ const Checkout = () => {
         .min(3, 'O nome deve ter pelo menos 3 caracteres'),
       cardNumber: Yup.string()
         .required('O número do cartão é obrigatório')
-        .matches(/^[0-9]{16}$/, 'O número do cartão deve ter 16 dígitos'),
+        .matches(/^[0-9]{19}$/, 'O número do cartão deve ter 16 dígitos'),
       cvv: Yup.string()
         .required('O CVV é obrigatório')
         .matches(/^[0-9]{3}$/, 'O CVV deve ter 3 dígitos'),
@@ -123,6 +124,20 @@ const Checkout = () => {
       })
     }
   })
+  if (error) {
+    return (
+      <>
+        <S.OrderContainer>
+          <S.OrderTitle>Erro ao realizar o pedido</S.OrderTitle>
+          <S.OrderDescription>
+            Ocorreu um erro ao realizar o pedido. Por favor, tente novamente
+            mais tarde.
+          </S.OrderDescription>
+          <S.OrderButton onClick={() => concluirOrdem()}>Voltar</S.OrderButton>
+        </S.OrderContainer>
+      </>
+    )
+  }
 
   return (
     <CartGlobalContainer className={isOrder ? 'is-open' : ''}>
@@ -179,14 +194,15 @@ const Checkout = () => {
                 </S.OrderRow>
                 <S.OrderRow>
                   <S.LabelContainer>
-                    <label htmlFor="cardNumber">Número no cartão</label>
-                    <input
+                    <label htmlFor="cardNumber">Número do cartão</label>
+                    <InputMask
                       type="text"
                       id="cardNumber"
                       name="cardNumber"
                       value={formPagamento.values.cardNumber}
                       onChange={formPagamento.handleChange}
                       onBlur={formPagamento.handleBlur}
+                      mask="9999 9999 9999 9999"
                     />
                     {formPagamento.touched.cardNumber &&
                       formPagamento.errors.cardNumber && (
@@ -197,13 +213,14 @@ const Checkout = () => {
                   </S.LabelContainer>
                   <S.LabelContainer width="86px">
                     <label htmlFor="cvv">CVV</label>
-                    <input
+                    <InputMask
                       type="text"
                       id="cvv"
                       name="cvv"
                       value={formPagamento.values.cvv}
                       onChange={formPagamento.handleChange}
                       onBlur={formPagamento.handleBlur}
+                      mask="999"
                     />
                     {formPagamento.touched.cvv && formPagamento.errors.cvv && (
                       <S.ErrorMessage>
@@ -215,13 +232,14 @@ const Checkout = () => {
                 <S.OrderRow>
                   <S.LabelContainer>
                     <label htmlFor="dueMonth">Mês de vencimento</label>
-                    <input
+                    <InputMask
                       type="text"
                       id="dueMonth"
                       name="dueMonth"
                       value={formPagamento.values.dueMonth}
                       onChange={formPagamento.handleChange}
                       onBlur={formPagamento.handleBlur}
+                      mask="99"
                     />
                     {formPagamento.touched.dueMonth &&
                       formPagamento.errors.dueMonth && (
@@ -232,13 +250,14 @@ const Checkout = () => {
                   </S.LabelContainer>
                   <S.LabelContainer>
                     <label htmlFor="dueYear">Ano de vencimento</label>
-                    <input
+                    <InputMask
                       type="text"
                       id="dueYear"
                       name="dueYear"
                       value={formPagamento.values.dueYear}
                       onChange={formPagamento.handleChange}
                       onBlur={formPagamento.handleBlur}
+                      mask="9999"
                     />
                     {formPagamento.touched.dueYear &&
                       formPagamento.errors.dueYear && (
@@ -313,13 +332,14 @@ const Checkout = () => {
                 <S.OrderRow>
                   <S.LabelContainer>
                     <label htmlFor="cep">CEP</label>
-                    <input
+                    <InputMask
                       type="text"
                       id="cep"
                       name="cep"
                       value={formEntrega.values.cep}
                       onChange={formEntrega.handleChange}
                       onBlur={formEntrega.handleBlur}
+                      mask="99999-999"
                     />
                     {formEntrega.touched.cep && formEntrega.errors.cep && (
                       <S.ErrorMessage>{formEntrega.errors.cep}</S.ErrorMessage>
