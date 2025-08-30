@@ -81,7 +81,7 @@ const Checkout = () => {
         .min(3, 'O nome deve ter pelo menos 3 caracteres'),
       cardNumber: Yup.string()
         .required('O número do cartão é obrigatório')
-        .matches(/^[0-9]{16}$/, 'O número do cartão deve ter 16 dígitos'),
+        .min(16, 'O número do cartão deve ter 16 dígitos'),
       cvv: Yup.string()
         .required('O CVV é obrigatório')
         .matches(/^[0-9]{3}$/, 'O CVV deve ter 3 dígitos'),
