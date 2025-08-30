@@ -5,6 +5,7 @@ import { store } from './store'
 import Rotas from './routes'
 import Footer from './components/Footer'
 import Cart from './components/Cart'
+import Checkout from './components/Checkout'
 
 //ORGANIZAÇÃO DE PÁGINAS PELO BROWSERROUTER
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Rotas />
           <Footer />
           <Cart />
+          <Checkout />
         </BrowserRouter>
       </Provider>
     </>

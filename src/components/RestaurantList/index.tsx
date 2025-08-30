@@ -77,7 +77,12 @@ const RestaurantList = () => {
                 <h3>{selectedItem.nome}</h3>
                 <p>{selectedItem.descricao}</p>
                 <p>Serve: {selectedItem.porcao}</p>
-                <ModalButton onClick={() => addToCart(selectedItem)}>
+                <ModalButton
+                  onClick={() => {
+                    addToCart(selectedItem)
+                    setModal(false)
+                  }}
+                >
                   Adicionar ao carrinho - {formataPreco(selectedItem.preco)}
                 </ModalButton>
               </Description>

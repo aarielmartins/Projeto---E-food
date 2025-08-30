@@ -12,7 +12,7 @@ import {
   Overlay
 } from './styles'
 import { formataPreco } from '../RestaurantList/index'
-import { close, remove } from '../../store/redurcers/cart'
+import { close, remove, openOrder } from '../../store/redurcers/cart'
 import lixeira from '../../assets/images/lixeira.png'
 
 const Cart = () => {
@@ -25,6 +25,15 @@ const Cart = () => {
 
   const removeItem = (id: number) => {
     dispatch(remove(id))
+  }
+
+  const abrirPedido = () => {
+    if (itens.length > 0) {
+      dispatch(openOrder())
+    } else {
+      closeCart()
+      alert('Seu carrinho esta vazio')
+    }
   }
 
   // const getTotalPrice = () => {
@@ -61,7 +70,7 @@ const Cart = () => {
             )}
           </p>
         </CartBuy>
-        <Button>Continuar com a entrega</Button>
+        <Button onClick={() => abrirPedido()}>Continuar com a entrega</Button>
       </CartContainer>
     </CartGlobalContainer>
   )

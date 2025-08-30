@@ -4,11 +4,15 @@ import { CardapioIten } from '../../models/cardapio'
 type CartState = {
   itens: CardapioIten[]
   isOpen: boolean
+  isPayment: boolean
+  isOrder: boolean
 }
 
 const initialState: CartState = {
   itens: [],
-  isOpen: false
+  isOpen: false,
+  isPayment: false,
+  isOrder: false
 }
 
 const cartSlice = createSlice({
@@ -27,14 +31,39 @@ const cartSlice = createSlice({
     remove: (state, action: PayloadAction<number>) => {
       state.itens = state.itens.filter((item) => item.id !== action.payload)
     },
+    clear: () => {
+      return initialState
+    },
     open: (state) => {
       state.isOpen = true
     },
     close: (state) => {
       state.isOpen = false
+    },
+    openOrder: (state) => {
+      state.isOrder = true
+    },
+    closeOrder: (state) => {
+      state.isOrder = false
+    },
+    openPayment: (state) => {
+      state.isPayment = true
+    },
+    closePayment: (state) => {
+      state.isPayment = false
     }
   }
 })
 
-export const { add, open, close, remove } = cartSlice.actions
+export const {
+  add,
+  open,
+  close,
+  remove,
+  openPayment,
+  closePayment,
+  openOrder,
+  closeOrder,
+  clear
+} = cartSlice.actions
 export default cartSlice.reducer
