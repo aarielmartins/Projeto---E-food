@@ -13,7 +13,7 @@ export const Containerlogo = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 80px 170px;
-  color: ${cores.laranja};
+  color: ${cores.cinza};
   font-size: 18px;
   font-weight: bold;
 
@@ -51,7 +51,7 @@ export const Italic = styled.h3`
   font-style: normal;
 `
 export const HomeLink = styled(Link)`
-  color: ${cores.laranja};
+  color: ${cores.cinza};
   font-size: 20px;
   font-weight: bold;
   text-decoration: none;

@@ -22,7 +22,7 @@ export const Logo = styled.div`
 `
 export const Titulo = styled.h2`
   text-align: center;
-  color: ${cores.laranja};
+  color: ${cores.cinza};
   font-size: 36px;
   font-weight: bold;
   margin-top: 138px;

@@ -9,7 +9,7 @@ export const CartGlobalContainer = styled.div`
   }
 `
 export const CartContainer = styled.div`
-  background-color: ${cores.laranja};
+  background-color: ${cores.cinza};
   position: fixed;
   z-index: 11;
   top: 0;
@@ -37,14 +37,14 @@ export const Overlay = styled.div`
   z-index: 10;
 `
 export const CartContent = styled.div`
-  background-color: ${cores.bege};
+  background-color: ${cores.chumbo};
   margin-bottom: 8px;
   padding: 8px;
   display: flex;
   position: relative;
 `
 export const CartDescribe = styled.div`
-  color: ${cores.laranja};
+  color: ${cores.cinza};
   margin-left: 8px;
 
   h4 {
@@ -76,11 +76,11 @@ export const CartBuy = styled.div`
   padding: 8px;
   font-size: 14px;
   font-weight: bold;
-  color: ${cores.bege};
+  color: ${cores.chumbo};
 `
 export const Button = styled.button`
-  background-color: ${cores.bege};
-  color: ${cores.laranja};
+  background-color: ${cores.chumbo};
+  color: ${cores.cinza};
   text-align: center;
   cursor: pointer;
   padding: 4px 8px;

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { cores } from '../../styles'
 
 export const FooterContainer = styled.footer`
-  background-color: ${cores.bege};
+  background-color: ${cores.chumbo};
   text-align: center;
   padding: 40px 0;
 `
@@ -16,7 +16,7 @@ export const FooterLogo = styled.div`
 `
 export const FooterText = styled.p`
   margin-top: 80px;
-  color: ${cores.laranja};
+  color: ${cores.cinza};
   font-size: 10px;
   line-height: 11px;
 `

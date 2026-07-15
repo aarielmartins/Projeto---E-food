@@ -3,7 +3,7 @@ import Check from '../models/Check'
 
 const api = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://api-ebac.vercel.app/api/efood'
+    baseUrl: 'https://api-ebac.vercel.app/api/efood/restaurantes/'
   }),
   endpoints: (builder) => ({
     purchase: builder.mutation<any, Check>({

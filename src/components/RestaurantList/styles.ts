@@ -31,7 +31,7 @@ export const ModalContainer = styled.div`
   }
 `
 export const ModalContent = styled.div`
-  background-color: ${cores.laranja};
+  background-color: ${cores.cinza};
   color: ${cores.branco};
   padding: 8px;
   padding-left: 32px;
@@ -98,7 +98,7 @@ export const Description = styled.div`
 `
 export const ModalButton = styled.button`
   background-color: ${cores.fundo};
-  color: ${cores.laranja};
+  color: ${cores.cinza};
   margin-top: 20px;
   text-align: center;
   cursor: pointer;

@@ -50,7 +50,7 @@ const PageRestaurant = ({
         <Descricao>
           <p>{descricao}</p>
         </Descricao>
-        <HomeButton to={`/restaurante/${id}`} nome="Saiba Mais" />
+        <HomeButton to={`/restaurantes/${id}`} nome="Saiba Mais" />
       </DescricaoContainer>
     </HomeItensContainer>
   )

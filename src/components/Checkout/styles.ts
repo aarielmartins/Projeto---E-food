@@ -6,7 +6,7 @@ type LabelProps = {
 }
 
 export const OrderContainer = styled.div`
-  background-color: ${cores.laranja};
+  background-color: ${cores.cinza};
   position: fixed;
   z-index: 11;
   top: 0;
@@ -36,7 +36,7 @@ export const OrderRow = styled.div`
   justify-content: space-between;
   font-size: 14px;
   font-weight: bold;
-  color: ${cores.bege};
+  color: ${cores.chumbo};
   column-gap: 34px;
 `
 export const LabelContainer = styled.div<LabelProps>`
@@ -58,8 +58,8 @@ export const LabelContainer = styled.div<LabelProps>`
     padding-block: 4px;
     padding-left: 4px;
     width: 100%;
-    background-color: ${cores.bege};
-    border: 2px solid ${cores.bege};
+    background-color: ${cores.chumbo};
+    border: 2px solid ${cores.chumbo};
     height: 32px;
 
     &.error {
@@ -79,8 +79,8 @@ export const ErrorMessage = styled.small`
   padding: 3px;
 `
 export const OrderButton = styled.button`
-  background-color: ${cores.bege};
-  color: ${cores.laranja};
+  background-color: ${cores.chumbo};
+  color: ${cores.cinza};
   text-align: center;
   cursor: pointer;
   border: none;
@@ -99,6 +99,6 @@ export const OrderButton = styled.button`
 export const OrderDescription = styled.p`
   font-size: 14px;
   line-height: 22px;
-  color: ${cores.bege};
+  color: ${cores.chumbo};
   margin-bottom: 16px;
 `

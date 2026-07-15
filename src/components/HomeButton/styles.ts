@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { cores } from '../../styles'
 
 export const HomeLink = styled(Link)`
-  background-color: ${cores.laranja};
+  background-color: ${cores.cinza};
   color: ${cores.fundo};
   text-align: center;
   padding: 4px 8px;

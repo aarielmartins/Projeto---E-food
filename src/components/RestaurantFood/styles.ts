@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { cores } from '../../styles'
 
 export const ItenCartContainer = styled.div`
-  background-color: ${cores.laranja};
+  background-color: ${cores.cinza};
   color: ${cores.fundo};
   padding: 8px;
   max-width: 320px;
@@ -28,7 +28,7 @@ export const ItenCartContainer = styled.div`
 `
 export const Button = styled.button`
   background-color: ${cores.fundo};
-  color: ${cores.laranja};
+  color: ${cores.cinza};
   padding: 4px 0;
   margin-top: 8px;
   width: 100%;

@@ -3,10 +3,10 @@ import { cores } from '../../styles'
 
 export const HomeItensContainer = styled.div`
   background-color: ${cores.branco};
-  color: ${cores.laranja};
+  color: ${cores.cinza};
   width: 470px;
   position: relative;
-  border: 1px solid ${cores.laranja};
+  border: 1px solid ${cores.cinza};
   border-top: none;
 
   @media (max-width: 768px) {
@@ -47,7 +47,7 @@ export const Indicadores = styled.div`
   gap: 8px;
 
   p {
-    background-color: ${cores.laranja};
+    background-color: ${cores.cinza};
     color: ${cores.fundo};
     padding: 4px 8px;
   }
