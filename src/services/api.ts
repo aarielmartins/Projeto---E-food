@@ -1,12 +1,16 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import Check from '../models/Check'
 
+interface PurchaseResponse {
+  orderId: string
+}
+
 const api = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://api-ebac.vercel.app/api/efood/'
   }),
   endpoints: (builder) => ({
-    purchase: builder.mutation<unknown, Check>({
+    purchase: builder.mutation<PurchaseResponse, Check>({
       query: (body) => ({
         url: 'checkout',
         method: 'POST',
